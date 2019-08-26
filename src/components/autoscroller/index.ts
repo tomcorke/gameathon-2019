@@ -1,3 +1,3 @@
-import AutoScroller from './AutoScroller'
+import AutoScroller from "./AutoScroller";
 
-export default AutoScroller
+export default AutoScroller;

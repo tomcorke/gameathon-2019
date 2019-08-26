@@ -1,3 +1,3 @@
-import TransformContainer from './TransformContainer'
+import TransformContainer from "./TransformContainer";
 
-export default TransformContainer
+export default TransformContainer;

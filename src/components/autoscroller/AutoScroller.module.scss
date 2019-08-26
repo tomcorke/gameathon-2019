@@ -1,0 +1,52 @@
+.AutoScroller {
+  position: absolute;
+  display: inline-block;
+  --scroll-duration: 60s;
+}
+
+.fast {
+  --scroll-duration: 30s;
+}
+
+@keyframes scroller {
+  0% { left: 0%; }
+  100% { left: -400%; }
+}
+
+.scroller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  animation: scroller var(--scroll-duration) linear infinite;
+}
+
+@keyframes leftShift {
+  0% { left: 0; }
+  75% { left: 100%; }
+}
+
+@keyframes rightShift {
+  0% { left: -50%; }
+  25% { left: 50%; }
+  100% { left: 50%; }
+
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  animation: leftShift var(--scroll-duration) step-end infinite;
+}
+.right {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  animation: rightShift var(--scroll-duration) step-end infinite;
+}

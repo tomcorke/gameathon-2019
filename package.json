@@ -7,10 +7,13 @@
     "@types/node": "12.7.2",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
+    "bluebird": "^3.5.5",
     "classnames": "^2.2.6",
+    "dotenv-safe": "^8.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
+    "request-promise-native": "^1.0.7",
     "typescript": "3.5.3"
   },
   "scripts": {
@@ -23,7 +26,12 @@
     "prettier": "prettier --check \"src/**/*.{ts,tsx}\"",
     "prettier:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
     "tslint": "tslint \"src/**/*.{ts,tsx}\"",
-    "tslint:fix": "tslint --fix \"src/**/*.{ts,tsx}\""
+    "tslint:fix": "tslint --fix \"src/**/*.{ts,tsx}\"",
+    "build:api": "tsc -p api",
+    "start:api": "now dev",
+    "deploy:api:login": "now login",
+    "deploy:api": "now",
+    "deploy:api:prod": "now --prod"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -52,11 +60,15 @@
     ]
   },
   "devDependencies": {
+    "@now/node": "^0.12.7",
+    "@types/bluebird": "^3.5.27",
     "@types/classnames": "^2.2.9",
+    "@types/request-promise-native": "^1.0.16",
     "gh-pages": "^2.1.1",
-    "node-sass": "^4.12.0",
     "husky": "^2.4.1",
     "lint-staged": "^8.2.1",
+    "node-sass": "^4.12.0",
+    "now": "^16.1.2",
     "prettier": "^1.18.2",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0"

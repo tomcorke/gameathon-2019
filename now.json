@@ -2,5 +2,9 @@
   "version": 2,
   "builds": [
     { "src": "api/index.ts", "use": "@now/node" }
-  ]
+  ],
+  "env": {
+    "JUSTGIVING_API_KEY": "@JUSTGIVING_API_KEY",
+    "FUNDRAISER_NAME": "@FUNDRAISER_NAME"
+  }
 }

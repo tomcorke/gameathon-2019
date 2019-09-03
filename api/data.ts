@@ -23,7 +23,6 @@ type EndpointDataPromise = Promise<EndpointData>
 
 
 const getEndpoint = (endpoint: string): EndpointDataPromise => {
-  console.log(`Fetching ${endpoint}`)
   return request({
     url: endpoint,
     headers: {

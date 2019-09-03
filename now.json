@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "api/index.ts", "use": "@now/node" }
-  ],
   "env": {
     "JUSTGIVING_API_KEY": "@justgiving_api_key",
     "FUNDRAISER_NAME": "@fundraiser_name"

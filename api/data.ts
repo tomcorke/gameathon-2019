@@ -1,8 +1,8 @@
-import request from 'request-promise-native'
 import { Promise as BluebirdPromise } from 'bluebird'
+import request from 'request-promise-native'
 
-import { DonationsEndpointResult, MergedDonationsEndpointResult } from './types/endpoint-result-types'
 import { APIFundraiserInfo } from './types/api'
+import { DonationsEndpointResult, MergedDonationsEndpointResult } from './types/endpoint-result-types'
 
 const {
   FUNDRAISER_NAME,
@@ -20,7 +20,6 @@ const endpoints: { [name: string]: string } = {
 
 type EndpointData = any
 type EndpointDataPromise = Promise<EndpointData>
-
 
 const getEndpoint = (endpoint: string): EndpointDataPromise => {
   return request({
@@ -49,7 +48,7 @@ const getAllDonations = async (): Promise<MergedDonationsEndpointResult> => {
     return firstPage
   }
 
-  const pageFetchers: Promise<DonationsEndpointResult>[] = []
+  const pageFetchers: Array<Promise<DonationsEndpointResult>> = []
   for (let i = 2; i <= pagination.totalPages; i += 1) {
     const pageEndpoint = `${endpoints.donations}?pageNum=${i}&pageSize=${PAGE_SIZE}`
     pageFetchers.push(getEndpoint(pageEndpoint))
@@ -59,7 +58,6 @@ const getAllDonations = async (): Promise<MergedDonationsEndpointResult> => {
     .map(
       pageFetchers,
       data => {
-        console.log(`Fetched page ${data.pagination.pageNumber} of ${data.pagination.totalPages}`)
         return data
       },
       { concurrency: 5 })

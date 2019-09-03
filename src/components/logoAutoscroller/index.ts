@@ -1,3 +1,3 @@
-import LogoAutoScroller from './LogoAutoScroller'
+import LogoAutoScroller from "./LogoAutoScroller";
 
-export default LogoAutoScroller
+export default LogoAutoScroller;

@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 
-import STYLES from './SimpleAutoScroller.module.scss'
+import STYLES from "./SimpleAutoScroller.module.scss";
 
 interface LogoAutoScrollerProps {
-  logos: JSX.Element[]
+  logos: JSX.Element[];
 }
 
 const LogoAutoScroller = ({ logos }: LogoAutoScrollerProps) => {
-
   const widthPerLogo = 100 / logos.length;
   return (
     <div className={STYLES.LogoAutoScroller}>
@@ -17,7 +16,7 @@ const LogoAutoScroller = ({ logos }: LogoAutoScrollerProps) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default LogoAutoScroller
+export default LogoAutoScroller;

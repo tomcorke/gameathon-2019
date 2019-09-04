@@ -2,12 +2,12 @@
   position: absolute;
   display: inline-block;
   --scroll-duration: 60s;
-  filter: blur(10px);
+  // filter: blur(10px);
 }
 
 .fast {
   --scroll-duration: 30s;
-  filter: blur(2px);
+  // filter: blur(2px);
 }
 
 @keyframes scroller {

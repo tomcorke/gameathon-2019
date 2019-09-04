@@ -35,3 +35,41 @@
     transform: rotate(-45deg);
   }
 }
+
+@mixin zig {
+  width: var(--size);
+  height: var(--size);
+  border: $zigzag-width solid var(--color);
+  border-left-width: 0;
+  border-bottom-width: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+$zigzag-width: 6px;
+
+.zigzag {
+  --size: 20px;
+  position: relative;
+  @include zig();
+  transform: rotate(-45deg);
+
+  &:before {
+    display: block;
+    position: absolute;
+    content: '';
+    right: calc(var(--size) - #{$zigzag-width} * 2);
+    bottom: calc(var(--size) - #{$zigzag-width});
+    @include zig();
+  }
+
+  &:after {
+    display: block;
+    position: absolute;
+    content: '';
+    left: calc(var(--size) - #{$zigzag-width});
+    top: calc(var(--size) - #{$zigzag-width} * 2);
+    @include zig();
+    border-right-width: 0;
+  }
+}

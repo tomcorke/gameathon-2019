@@ -10,15 +10,15 @@ const randomFrom = <T extends any>(array: T[]) => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-const shapeColours = ["magenta", "cyan", "blue"];
-const randomColour = () => randomFrom(shapeColours);
+const shapeColours = ['magenta', 'cyan', 'blue'];
+const randomColour = (extraColours: string[] = []) => randomFrom([...shapeColours, ...extraColours]);
 
 const lineFunction = () => {
   const style = {
     left: rangeUnits(0, 100, "%"),
     top: rangeUnits(0, 100, "%"),
     width: rangeUnits(25, 125),
-    height: rangeUnits(2, 10),
+    height: rangeUnits(5, 10),
     backgroundColor: randomColour()
   };
   return <div className={STYLES.Shape} style={style} />;
@@ -55,7 +55,7 @@ const shapeFunctions = [
     const style = {
       left: rangeUnits(0, 100, "%"),
       top: rangeUnits(0, 100, "%"),
-      width: "40px",
+      width: rangeUnits(20, 40),
       height: "5px"
     };
     const xStyle = {
@@ -67,11 +67,22 @@ const shapeFunctions = [
         <div className={STYLES.b} style={xStyle} />
       </div>
     );
+  },
+  () => {
+    const style = {
+      left: rangeUnits(0, 100, "%"),
+      top: rangeUnits(0, 100, "%"),
+      ['--size']: rangeUnits(20,30),
+      ['--color']: randomColour(['red']),
+    };
+    return (
+      <div className={classnames(STYLES.Shape, STYLES.zigzag)} style={style} />
+    )
   }
 ];
 
 const Shape = () => {
-  return randomFrom([lineFunction, lineFunction, randomFrom(shapeFunctions)])();
+  return randomFrom([lineFunction, randomFrom(shapeFunctions)])();
 };
 
 export default Shape;

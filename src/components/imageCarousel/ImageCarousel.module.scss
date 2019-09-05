@@ -1,0 +1,28 @@
+.ImageCarousel {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 60px;
+  justify-content: center;
+}
+
+.image {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: opacity 2s ease-in-out;
+
+  &.hide {
+    opacity: 0;
+  }
+}

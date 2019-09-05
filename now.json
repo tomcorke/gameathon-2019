@@ -1,7 +1,8 @@
 {
   "version": 2,
+  "name": "gameathon-2019",
   "env": {
     "JUSTGIVING_API_KEY": "@justgiving_api_key",
-    "FUNDRAISER_NAME": "@fundraiser_name"
+    "FUNDRAISER_NAME": "oneday-game-a-thon"
   }
 }

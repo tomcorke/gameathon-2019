@@ -1,1 +1,4 @@
 yarn.lock
+build/
+mock-data.json
+mock-data.ts

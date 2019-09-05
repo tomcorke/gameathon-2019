@@ -21,40 +21,58 @@
 }
 
 @keyframes shift-1 {
-  58%  { left: 5px; }
-  59%  { left: 10px; }
-  60% { left: 5px;  }
+  54.9% {
+    left: 3px;
+  }
+  55% {
+    left: 6px;
+  }
+  60% {
+    left: 3px;
+  }
 }
 
 @keyframes shift-2 {
-  98%  { left: -5px; }
-  99%  { left: -10px; }
-  100% { left: -5px;  }
+  94.9% {
+    left: -3px;
+  }
+  95% {
+    left: -6px;
+  }
+  100% {
+    left: -3px;
+  }
 }
 
 @keyframes shift-3 {
-  98%  { left: 0; }
-  99%  { left: -5px; }
-  100% { left: 0;  }
+  94.9% {
+    left: 0;
+  }
+  95% {
+    left: -3px;
+  }
+  100% {
+    left: 0;
+  }
 }
 
 .glitchCyan {
-  left: 5px;
-  top: 3px;
+  left: 3px;
+  top: 2px;
   animation: shift-1 4s infinite;
   color: cyan;
 }
 
 .glitchMagenta {
-  left: -5px;
-  top: 5px;
+  left: -3px;
+  top: 3px;
   animation: shift-2 5s infinite;
   color: magenta;
 }
 
 .glitchWhite {
   left: 0px;
-  top: -4px;
+  top: -2px;
   animation: shift-3 6s infinite;
   color: white;
 }

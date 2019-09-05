@@ -9,9 +9,11 @@ import Image_SpecialEffect from "../../images/SE_Logo_Proud_To_Support_V2_White.
 import Image_Skyscanner from "../../images/skyscanner_RGB_white.svg";
 import Image_JustGiving from "../../images/JustGiving-logo-EPS-RGB.png";
 
+import STYLES from './FullLayout.module.scss';
+
 const FullLayout: React.FC = () => {
   return (
-    <div>
+    <div className={STYLES.FullLayout}>
       <CornerLogo />
       <TransformContainer left="0" top="0" width="100%">
         <DonationBar />

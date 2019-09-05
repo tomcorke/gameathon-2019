@@ -1,0 +1,24 @@
+.DonationBar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 800px;
+}
+
+.messageCarousel {
+}
+
+.message {
+  background-color: rgba(black, 0.7);
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-align: center;
+}

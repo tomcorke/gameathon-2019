@@ -1,0 +1,21 @@
+.Carousel {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.elementContainer {
+  position: relative;
+  width: 100%;
+}
+
+.element {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: opacity 2s ease-in-out;
+
+  &.hide {
+    opacity: 0;
+  }
+}

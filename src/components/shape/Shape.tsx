@@ -72,8 +72,8 @@ const shapeFunctions = [
     const style = {
       left: rangeUnits(0, 100, "%"),
       top: rangeUnits(0, 100, "%"),
-      ['--size']: rangeUnits(20,30),
-      ['--color']: randomColour(['red']),
+      '--size': rangeUnits(20, 30),
+      '--color': randomColour(['red']),
     };
     return (
       <div className={classnames(STYLES.Shape, STYLES.zigzag)} style={style} />

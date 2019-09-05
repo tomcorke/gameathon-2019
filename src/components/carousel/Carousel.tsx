@@ -4,19 +4,18 @@ import classnames from "classnames";
 import STYLES from "./Carousel.module.scss";
 
 interface CarouselProps {
-  rotateDelay?: number
+  rotateDelay?: number;
   elements: JSX.Element[];
 }
 
 const ROTATE_DELAY = 10000;
 
 const Carousel = ({ rotateDelay = ROTATE_DELAY, elements }: CarouselProps) => {
-
   const [elementIndexToDisplay, setElementIndexToDisplay] = useState(0);
 
   useEffect(() => {
     // Don't use elementIndexToDisplay, to prevent exhaustive dependency warning
-    let indexToDisplay = 0
+    let indexToDisplay = 0;
 
     const update = () => {
       let nextImage = indexToDisplay + 1;
@@ -25,9 +24,9 @@ const Carousel = ({ rotateDelay = ROTATE_DELAY, elements }: CarouselProps) => {
       }
       indexToDisplay = nextImage;
       setElementIndexToDisplay(nextImage);
-    }
+    };
 
-    const rotateTimer = setInterval(update, rotateDelay)
+    const rotateTimer = setInterval(update, rotateDelay);
 
     return () => {
       clearTimeout(rotateTimer);
@@ -42,7 +41,8 @@ const Carousel = ({ rotateDelay = ROTATE_DELAY, elements }: CarouselProps) => {
             key={i}
             className={classnames(STYLES.element, {
               [STYLES.hide]: i !== elementIndexToDisplay
-            })}>
+            })}
+          >
             {element}
           </div>
         ))}

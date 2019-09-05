@@ -9,6 +9,12 @@ const fetchData = async () => {
   if (!dataUpdatePromise) {
     const newDataRequest = fetch("/api")
       .then(response => {
+        if (response.status !== 200) {
+          throw Error(
+            `Unexpected status code received when fetching data from API: ${response.status} (${response.statusText})`
+          );
+        }
+
         dataUpdatePromise = null;
         return response.json();
       })

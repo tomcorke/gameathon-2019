@@ -10,8 +10,9 @@ const randomFrom = <T extends any>(array: T[]) => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-const shapeColours = ['magenta', 'cyan', 'blue'];
-const randomColour = (extraColours: string[] = []) => randomFrom([...shapeColours, ...extraColours]);
+const shapeColours = ["magenta", "cyan", "blue"];
+const randomColour = (extraColours: string[] = []) =>
+  randomFrom([...shapeColours, ...extraColours]);
 
 const lineFunction = () => {
   const style = {
@@ -72,12 +73,12 @@ const shapeFunctions = [
     const style = {
       left: rangeUnits(0, 100, "%"),
       top: rangeUnits(0, 100, "%"),
-      '--size': rangeUnits(20, 30),
-      '--color': randomColour(['red']),
+      "--size": rangeUnits(20, 30),
+      "--color": randomColour(["red"])
     };
     return (
       <div className={classnames(STYLES.Shape, STYLES.zigzag)} style={style} />
-    )
+    );
   }
 ];
 

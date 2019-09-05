@@ -17,7 +17,7 @@ const ProgressBar = ({
 }: ProgressBarProps) => {
   // Calculate percentage to 1 decimal place
   const progressWidth =
-    total > 0 ? Math.min(66, Math.floor((value / total) * 1000) / 10) : 0;
+    total > 0 ? Math.min(100, Math.floor((value / total) * 1000) / 10) : 0;
   return (
     <div className={STYLES.ProgressBar}>
       <div className={STYLES.BarContainer}>

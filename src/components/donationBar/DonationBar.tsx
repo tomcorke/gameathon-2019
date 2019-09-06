@@ -11,8 +11,8 @@ import Carousel from "../carousel";
 
 const initialData: EndpointDataMap | undefined = undefined;
 
-const startDate = new Date(2019, 8, 6, 9);
-const endDate = new Date(2019, 8, 7, 9);
+const startDate = new Date(2019, 8, 6, 10);
+const endDate = new Date(2019, 8, 7, 10);
 
 const Countdown: React.FC = () => {
   const [displayString, setDisplayString] = useState("");

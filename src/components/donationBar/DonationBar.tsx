@@ -4,12 +4,10 @@ import humanize from "humanize-duration";
 import { EndpointDataMap } from "../../../api/data";
 
 import ProgressBar from "../progressBar";
-import { fetchData } from "../../data";
+import Carousel from "../carousel";
+import { dataConsumer } from "../../data";
 
 import STYLES from "./DonationBar.module.scss";
-import Carousel from "../carousel";
-
-const initialData: EndpointDataMap | undefined = undefined;
 
 const startDate = new Date(2019, 8, 6, 10);
 const endDate = new Date(2019, 8, 7, 10);
@@ -46,26 +44,13 @@ const Countdown: React.FC = () => {
   return <span>{displayString}</span>;
 };
 
-const DonationBar: React.FC = () => {
-  const [data, setData] = useState<EndpointDataMap | undefined>(initialData);
+interface DonationBarProps {
+  data: EndpointDataMap;
+}
 
-  useEffect(() => {
-    const updateData = () => {
-      fetchData().then(data => {
-        if (data) {
-          setData(data);
-        }
-      });
-    };
-
-    const updateDataInterval = setInterval(updateData, 1000);
-
-    return () => {
-      clearInterval(updateDataInterval);
-    };
-  }, []);
-
+const DonationBar = ({ data }: DonationBarProps) => {
   let progressBar: JSX.Element;
+
   if (data && data.info) {
     progressBar = (
       <ProgressBar
@@ -102,4 +87,6 @@ const DonationBar: React.FC = () => {
   );
 };
 
-export default DonationBar;
+const WrappedDonationBar = dataConsumer(DonationBar);
+
+export default WrappedDonationBar;

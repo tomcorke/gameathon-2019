@@ -4,12 +4,13 @@ import TransformContainer from "../../components/transformContainer";
 import ImageCarousel from "../../components/imageCarousel";
 import CornerLogo from "../../components/cornerLogo";
 import DonationBar from "../../components/donationBar";
+import Ticker from "../../components/ticker";
 
 import Image_SpecialEffect from "../../images/SE_Logo_Proud_To_Support_V2_White.png";
 import Image_Skyscanner from "../../images/skyscanner_RGB_white.svg";
 import Image_JustGiving from "../../images/JustGiving-logo-EPS-RGB.png";
 
-import STYLES from './FullLayout.module.scss';
+import STYLES from "./FullLayout.module.scss";
 
 const FullLayout: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ const FullLayout: React.FC = () => {
         />
       </TransformContainer>
       <TransformContainer left="0" bottom="0" width="100%">
-        {/* <div>Hello world</div> */}
+        <Ticker />
       </TransformContainer>
     </div>
   );

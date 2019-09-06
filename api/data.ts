@@ -34,6 +34,7 @@ const getEndpoint = (endpoint: string): EndpointDataPromise => {
 };
 
 export interface EndpointDataMap {
+  timestamp?: number;
   info?: APIFundraiserInfo;
   donations: MergedDonationsEndpointResult;
 }
@@ -78,49 +79,11 @@ const getAllDonations = async (): Promise<MergedDonationsEndpointResult> => {
   return mergedResults;
 };
 
-const getFreshData = async (): Promise<EndpointDataMap> => {
+const getData = async (): Promise<EndpointDataMap> => {
   return {
+    timestamp: Date.now(),
     info: (await getEndpoint(endpoints.info)) as APIFundraiserInfo,
     donations: await getAllDonations()
-  };
-};
-
-let dataCache: EndpointDataMap | undefined;
-let dataCachePromise: Promise<EndpointDataMap> | undefined;
-
-let dataRefreshThrottled = false;
-const DATA_REFRESH_THROTTLE_TIME = 10000;
-
-const getData = async (): Promise<EndpointDataMap> => {
-  if (!dataCache || !dataRefreshThrottled) {
-    if (dataCachePromise === undefined) {
-      const newDataFetcher = getFreshData();
-
-      newDataFetcher.then(data => {
-        dataCache = data;
-        dataCachePromise = undefined;
-      });
-
-      dataCachePromise = newDataFetcher;
-
-      dataRefreshThrottled = true;
-      setTimeout(() => {
-        dataRefreshThrottled = false;
-      }, DATA_REFRESH_THROTTLE_TIME);
-    }
-
-    if (!dataCache) {
-      return dataCachePromise;
-    }
-  }
-
-  if (dataCache !== undefined) {
-    return dataCache;
-  }
-
-  return {
-    info: undefined,
-    donations: { donations: [] }
   };
 };
 

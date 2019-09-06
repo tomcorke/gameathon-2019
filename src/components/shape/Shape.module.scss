@@ -1,18 +1,17 @@
 .Shape {
   position: absolute;
   background-color: black;
-  opacity: 0.7;
   mix-blend-mode: color-dodge;
 }
 
 .square {
   background-color: transparent;
-  border: 10px solid black;
+  border: 6px solid black;
 }
 
 .circle {
   background-color: transparent;
-  border: 10px solid black;
+  border: 6px solid black;
   border-radius: 50%;
 }
 

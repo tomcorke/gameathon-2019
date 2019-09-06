@@ -27,20 +27,21 @@ const lineFunction = () => {
 
 const shapeFunctions = [
   () => {
-    const size = rangeUnits(10, 30);
+    const size = rangeUnits(10, 25);
     const style = {
       left: rangeUnits(0, 100, "%"),
       top: rangeUnits(0, 100, "%"),
       width: size,
       height: size,
-      borderColor: randomColour()
+      borderColor: randomColour(),
+      transform: `rotate(${rangeUnits(-45, 45, "deg")})`
     };
     return (
       <div className={classnames(STYLES.Shape, STYLES.square)} style={style} />
     );
   },
   () => {
-    const size = rangeUnits(10, 40);
+    const size = rangeUnits(10, 30);
     const style = {
       left: rangeUnits(0, 100, "%"),
       top: rangeUnits(0, 100, "%"),
@@ -57,7 +58,8 @@ const shapeFunctions = [
       left: rangeUnits(0, 100, "%"),
       top: rangeUnits(0, 100, "%"),
       width: rangeUnits(20, 40),
-      height: "5px"
+      height: "5px",
+      transform: `rotate(${rangeUnits(-45, 45, "deg")})`
     };
     const xStyle = {
       backgroundColor: randomColour()
